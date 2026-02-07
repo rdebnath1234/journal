@@ -1,12 +1,13 @@
-# Northwind Journal (Full-Stack Blog)
+# Journal (Full-Stack Blog)
 
 A production-style MERN blog with modern UI, JWT auth, search, tags, pagination, and real-time comments.
 
 ## Features
-- Modern, responsive UI with clean typography and spacing
+- Magazine-style, responsive UI inspired by modern blog layouts
 - JWT auth (register/login) and protected post editor
 - Posts list with search, tags filter, and pagination
-- Post detail page with social share and instant comments
+- Post detail page with social share icons and instant comments
+- Cloudinary image upload in the editor (optional)
 - MongoDB seed script for demo content
 - Secure API (helmet, rate limit, sanitize, validation)
 
@@ -44,7 +45,20 @@ server/
 ```
 cd server
 npm install
-cp .env.example .env
+```
+
+Create `/Users/riyadebnathdas/Desktop/Projects/Blog Website/server/.env`:
+```
+PORT=5001
+MONGO_URI=mongodb://127.0.0.1:27017/blog-website
+JWT_SECRET=replace_with_strong_secret
+JWT_EXPIRES_IN=7d
+CLIENT_ORIGIN=http://localhost:5173
+CLOUDINARY_URL=cloudinary://<api_key>:<api_secret>@<cloud_name>
+```
+
+Run server:
+```
 npm run dev
 ```
 
@@ -62,27 +76,22 @@ Default admin user:
 ```
 cd client
 npm install
-cp .env.example .env
+```
+
+Create `/Users/riyadebnathdas/Desktop/Projects/Blog Website/client/.env`:
+```
+VITE_API_URL=http://localhost:5001/api
+```
+
+Run client:
+```
 npm run dev
 ```
 
 Open http://localhost:5173
 
 ## Environment Variables
-### server/.env
-```
-PORT=5001
-MONGO_URI=mongodb://127.0.0.1:27017/blog-website
-JWT_SECRET=replace_with_strong_secret
-JWT_EXPIRES_IN=7d
-CLIENT_ORIGIN=http://localhost:5173
-CLOUDINARY_URL=cloudinary://<api_key>:<api_secret>@<cloud_name>
-```
-
-### client/.env
-```
-VITE_API_URL=http://localhost:5001/api
-```
+Already listed above in Setup.
 
 ## Screenshots
 - [ ] Home page
@@ -91,9 +100,9 @@ VITE_API_URL=http://localhost:5001/api
 
 ## Resume Project Description (3–5 bullets)
 - Built a full-stack MERN blog platform with JWT auth, protected post editor, and MongoDB data models for users, posts, and comments.
-- Designed a modern, responsive UI in React with search, tag filters, pagination, and instant comment updates.
+- Designed a magazine-style, responsive UI in React with search, tag filters, pagination, and instant comment updates.
 - Implemented a production-ready Express API using MVC structure, input validation, and security middleware (helmet, rate limiting, sanitization).
-- Added seed scripts and environment-based configuration for consistent local development and demos.
+- Added Cloudinary uploads and seed scripts for consistent local development and demos.
 
 ## Interview Questions & Answers (10)
 1. **How did you structure the backend API?**
@@ -111,7 +120,7 @@ VITE_API_URL=http://localhost:5001/api
 7. **How are comments handled?**
    - Comments are stored in a separate collection with a `post` reference and can be added by guests or logged-in users.
 8. **What would you improve for production?**
-   - Add refresh tokens, roles for admin/editor, file uploads via Cloudinary, and full-text search indexes.
+   - Add refresh tokens, roles for admin/editor, full-text search indexes, and better image moderation.
 9. **How does the editor work?**
    - The editor is a protected page that creates or updates posts via the REST API.
 10. **What did you optimize for in the UI?**
