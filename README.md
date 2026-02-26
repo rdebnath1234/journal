@@ -94,9 +94,23 @@ Open http://localhost:5173
 Already listed above in Setup.
 
 ## Screenshots
-- [ ] Home page
-- [ ] Post details + comments
-- [ ] Editor (create/edit)
+### Home (Desktop)
+![Home Desktop](docs/screenshots/01-home.png)
+
+### Post Details + Comments
+![Post Details Comments](docs/screenshots/02-post-details-comments.png)
+
+### Login
+![Login Page](docs/screenshots/03-login.png)
+
+### Register
+![Register Page](docs/screenshots/04-register.png)
+
+### Editor (Protected)
+![Editor Page](docs/screenshots/05-editor.png)
+
+### Home (Mobile)
+![Home Mobile](docs/screenshots/06-home-mobile.png)
 
 ## Resume Project Description (3–5 bullets)
 - Built a full-stack MERN blog platform with JWT auth, protected post editor, and MongoDB data models for users, posts, and comments.
