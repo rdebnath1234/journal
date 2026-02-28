@@ -1,0 +1,11 @@
+.git
+.gitignore
+.DS_Store
+client
+docs
+test-results
+Blog_Website_Project_Report.ipynb
+Blog_Website_Report.pdf
+server/node_modules
+client/node_modules
+server/uploads
