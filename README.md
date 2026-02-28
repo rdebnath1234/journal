@@ -155,7 +155,10 @@ npm run build
 - Live API base URL: `https://api-production-efaf.up.railway.app`
 - Health check: `https://api-production-efaf.up.railway.app/api/health`
 - Railway service uses port `5001`.
-- Update `CLIENT_ORIGIN` in Railway when the frontend is deployed, otherwise CORS will continue allowing only the local frontend origin.
+- Frontend is deployed on Railway from the GitHub repo.
+- Live frontend URL: `https://web-git-production.up.railway.app`
+- Set `VITE_API_URL` to `https://api-production-efaf.up.railway.app/api` in Railway so the client points at the API routes correctly.
+- Set `CLIENT_ORIGIN` in Railway to `https://web-git-production.up.railway.app` so CORS allows the deployed frontend.
 
 ## Notes
 - Cloudinary upload is optional. If `CLOUDINARY_URL` is set, the editor can upload images.
