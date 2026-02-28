@@ -62,11 +62,15 @@ Run server:
 npm run dev
 ```
 
+The backend reads environment variables from `/Users/riyadebnathdas/Desktop/Projects/Blog Website/server/.env`, so it can start correctly whether you launch it from `server/` or from the project root.
+
 ### 2) Seed Demo Data
 ```
 cd server
 npm run seed
 ```
+
+The seed script uses the same `/Users/riyadebnathdas/Desktop/Projects/Blog Website/server/.env` file.
 
 Default admin user:
 - Email: admin@example.com

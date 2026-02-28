@@ -1,14 +1,29 @@
+import fs from 'fs';
+import path from 'path';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import slugify from 'slugify';
-import connectDB from './src/config/db.js';
-import User from './src/models/User.js';
-import Post from './src/models/Post.js';
-import Comment from './src/models/Comment.js';
-import samplePosts from './src/data/samplePosts.js';
 
-dotenv.config();
+const envPath = fs.existsSync(path.join(process.cwd(), '.env'))
+  ? path.join(process.cwd(), '.env')
+  : path.join(process.cwd(), 'server', '.env');
+
+dotenv.config({ path: envPath });
+
+const [
+  { default: connectDB },
+  { default: User },
+  { default: Post },
+  { default: Comment },
+  { default: samplePosts },
+] = await Promise.all([
+  import('./src/config/db.js'),
+  import('./src/models/User.js'),
+  import('./src/models/Post.js'),
+  import('./src/models/Comment.js'),
+  import('./src/data/samplePosts.js'),
+]);
 
 const runSeed = async () => {
   await connectDB(process.env.MONGO_URI);
