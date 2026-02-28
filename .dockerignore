@@ -1,7 +1,6 @@
 .git
 .gitignore
 .DS_Store
-client
 docs
 test-results
 Blog_Website_Project_Report.ipynb
